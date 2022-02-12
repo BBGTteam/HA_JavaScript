@@ -37,9 +37,8 @@ io.on('connection', function(socket) {
 parser.on('data', function(data) {
     
     console.log(data);
-    
+        
     io.emit('data', data);
-    
 });
 
 app.listen(3000);

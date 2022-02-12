@@ -9,7 +9,13 @@
         
         <h1>Communicating from an Arduino to Node.js</h1>
 
-        <div id="sample"></div>
+        <div id="Tomi"></div>
+        <div id="Bazsi"></div>
+        <div id="Cp"></div>
+        <div id="Gabi"></div>
+        <div id="Pad"></div>
+        <div id="Out"></div>
+        <div id="Bath"></div>
         
         <script>
             
@@ -18,8 +24,35 @@
         socket.on('data', function(data) {
             
             console.log(data);
+            if (data.includes("Tomi")){
+                document.getElementById('Tomi').innerHTML = data; 
+                }
             
-            document.getElementById('sample').innerHTML = data; 
+            if (data.includes("Bazsi")){
+                document.getElementById('Bazsi').innerHTML = data; 
+                }
+            
+            if (data.includes("Cp")){
+                document.getElementById('Cp').innerHTML = data; 
+                }
+
+            if (data.includes("Gabi")){
+                document.getElementById('Gabi').innerHTML = data; 
+                }
+            
+            if (data.includes("Pad")){
+                document.getElementById('Pad').innerHTML = data; 
+                }
+
+            if (data.includes("Out")){
+                document.getElementById('Out').innerHTML = data; 
+                }
+            
+            if (data.includes("Bath")){
+                document.getElementById('Bath').innerHTML = data; 
+                }
+
+            
 
         });
         
