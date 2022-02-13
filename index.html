@@ -7,7 +7,7 @@
     </head>
     <body>
         
-        <h1>Communicating from an Arduino to Node.js</h1>
+        <h1>Smart Home</h1>
 
         <div id="Tomi"></div>
         <div id="Bazsi"></div>
@@ -17,6 +17,8 @@
         <div id="Out"></div>
         <div id="Bath"></div>
         
+        <button onclick="sendMessage()">Send Message</button>
+
         <script>
             
         var socket = io();
@@ -52,9 +54,11 @@
                 document.getElementById('Bath').innerHTML = data; 
                 }
 
-            
-
         });
+
+        const sendMessage = () => {
+            socket.emit('message', "Hey it worked!")
+        }
         
         </script>
         

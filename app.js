@@ -32,6 +32,9 @@ io.on('connection', function(socket) {
     
     console.log('Node is listening to port');
     
+    socket.on("message", (data) => {
+        console.log(data);
+    });
 });
 
 parser.on('data', function(data) {
