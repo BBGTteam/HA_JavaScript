@@ -40,8 +40,16 @@ io.on('connection', function(socket) {
 parser.on('data', function(data) {
     
     console.log(data);
-        
-    io.emit('data', data);
+    splitMessage(data)
 });
 
 app.listen(3000);
+
+function splitMessage(data){
+    if (data.includes("Tomi")){
+        msgSplitted = data.split(",");
+        io.emit('data', msgSplitted);
+        
+        }
+
+}
