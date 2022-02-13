@@ -17,8 +17,8 @@
         <div id="Out"></div>
         <div id="Bath"></div>
         
-        <button onclick="sendMessage()">Send Message</button>
-
+        <button onclick="sendMessage('0ledCp')">Send Message led on</button>
+        
         <script>
             
         var socket = io();
@@ -56,11 +56,11 @@
 
         });
 
-        const sendMessage = () => {
-            socket.emit('message', "Hey it worked!")
+        const sendMessage = (msg) => {
+            socket.emit('message', msg)
         }
         
         </script>
-        <script src="app.js"></script>
+        
     </body>
 </html>
