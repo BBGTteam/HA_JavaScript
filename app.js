@@ -1,3 +1,4 @@
+var utils = require('./utils/utils')
 var http = require('http');
 var fs = require('fs');
 var index = fs.readFileSync( 'index.html');
@@ -40,15 +41,12 @@ io.on('connection', function(socket) {
 parser.on('data', function(data) {
     
     console.log(data);
-    splitMessage(data)
+    // splitMessage(data)
+    utils.splitMessage(io, data);
+    
+    
 });
 
 app.listen(3000);
 
-function splitMessage(data){
-    if (data.includes("Tomi")){
-        msgSplitted = data.split(",");
-        io.emit('data', msgSplitted);
-        
-        }
-}
+
