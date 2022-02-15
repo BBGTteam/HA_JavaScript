@@ -3,6 +3,7 @@
     "version": "0.0.1",
     "description": "Communication between Arduino and HTML/JavaScript",
     "dependencies": {
+        "node-fetch": "^3.2.0",
         "serialport": "^9.2.8",
         "socket.io": "^4.4.1"
     }

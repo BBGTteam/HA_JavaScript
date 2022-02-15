@@ -22,6 +22,7 @@
         <div id="Bath"></div>
         
         <button onclick="sendMessage('0ledCp')">Send Message led on</button>
+        <button onclick="sendMessage('akarmi')">Get temp</button>
         
         
   
@@ -39,33 +40,8 @@
         socket.on('data', function(data) {
             
             console.log(data);
-            if (data.includes("Tomi")){
-                document.getElementById('Tomi').innerHTML = data[1]; 
-                }
             
-            if (data.includes("Bazsi")){
-                document.getElementById('Bazsi').innerHTML = data; 
-                }
-            
-            if (data.includes("Cp")){
-                document.getElementById('Cp').innerHTML = data; 
-                }
-
-            if (data.includes("Gabi")){
-                document.getElementById('Gabi').innerHTML = data; 
-                }
-            
-            if (data.includes("Pad")){
-                document.getElementById('Pad').innerHTML = data; 
-                }
-
-            if (data.includes("Out")){
-                document.getElementById('Out').innerHTML = data; 
-                }
-            
-            if (data.includes("Bath")){
-                document.getElementById('Bath').innerHTML = data; 
-                }
+            document.getElementById(data[0]).innerHTML = data[1]; 
 
         });
 

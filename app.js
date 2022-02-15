@@ -1,9 +1,10 @@
-var utils = require('./utils/utils')
+var utils = require('./utils/utils');
 var http = require('http');
 var fs = require('fs');
 var index = fs.readFileSync( 'index.html');
 
 var SerialPort = require('serialport');
+
 const parsers = SerialPort.parsers;
 
 const parser = new parsers.Readline({
@@ -34,19 +35,23 @@ io.on('connection', function(socket) {
     console.log('Node is listening to port');
     
     socket.on("message", (data) => {
-        port.write(data);
+        if (data == '0ledCp') port.write(data);
+        else getTemp();
     });
 });
 
 parser.on('data', function(data) {
     
-    console.log(data);
-    // splitMessage(data)
-    utils.splitMessage(io, data);
-    
-    
+    utils.splitMessage(io, data, port, temp);
 });
 
 app.listen(3000);
 
+function getTemp(){
+    const dataFromJSONFile = fs.readFileSync('./data/db.json');
+    const dataFromJSON = JSON.parse(dataFromJSONFile);
+    const temp = parseFloat(dataFromJSON.users[0].temp);
+    return temp;
+}
 
+var temp = getTemp();
