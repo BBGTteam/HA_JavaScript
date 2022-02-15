@@ -23,8 +23,7 @@ class UtilsWithio{
                 }
             }
 }
-  
-
+ 
 module.exports = {
     splitMessage: function(io, data, port, temp){
         this.io = io;
