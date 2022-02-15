@@ -1,4 +1,5 @@
 var utils = require('./utils');
+var emails = require('./email');
 var http = require('http');
 var fs = require('fs');
 var index = fs.readFileSync( './html/main.html');
@@ -116,3 +117,4 @@ function jsonReader(filePath, cb) {
   }
 
   getDataFromArduino();
+  emails.sendEmail("Server start");
